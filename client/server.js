@@ -18,6 +18,9 @@ const client = new productsProto('localhost:50051', grpc.credentials.createInsec
 app.get('/get-product', (req, res) => {
   const productId = req.query.product_id;
 
+  //code below will get the product data from service product
+  //on real case this will be the product that will process on this service
+  //but for example we just return the product data as response
   client.GetProduct({ product_id: productId }, (err, response) => {
     if (err) {
       console.error('Error:', err);
